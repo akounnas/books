@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.SqlClient;
+using System.Collections.Generic;
 
 namespace books.Controllers
 {
@@ -56,9 +57,10 @@ namespace books.Controllers
             }
         }
 
-        public DataModel SelectData(string selection)
+        public List<DataModel> SelectData(string selection)
         {
             DataModel data = new DataModel();
+            List<DataModel> result = new List<DataModel>();
             var query = string.Format(Queries.Queries.SelectQuery, "Books");
 
             using(var connection = new SqlConnection(connectionString))
@@ -88,6 +90,7 @@ namespace books.Controllers
                                 data.year = reader["year"].ToString();
                                 data.isbn = reader["isbn"].ToString();
                                 data.genre = reader["genre"].ToString();
+                                result.Add(data);
                             }
                         }
                     }
@@ -102,7 +105,7 @@ namespace books.Controllers
                 }
             }
 
-            return data;
+            return result;
         }
     }
 
