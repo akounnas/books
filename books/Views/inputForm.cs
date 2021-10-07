@@ -87,9 +87,8 @@ namespace books
 
         private void showBtn_Click(object sender, EventArgs e)
         {
-            string selection = FilterSelect.Text;  
-            var data =  sqlController.SelectData(selection);
-            MessageBox.Show($"Book Title: {data.title}, Author: {data.author}, Release Year: {data.year}");
+            var form2 = new SearchDb();
+            form2.Show();
         }
 
         private void FilterSelect_SelectedIndexChanged(object sender, EventArgs e)

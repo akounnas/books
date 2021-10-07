@@ -35,16 +35,15 @@ namespace books
             string selection = FilterSelect.Text;
             var data = sqlController.SelectData(selection);
 
-            /*            foreach (var x in data)
-                        {
-                            MessageBox.Show($"Book Title: {x.title}, Author: {x.author}, Release Year: {x.year}");
-                        }
-            */
-
             for (int i = 0; i < data.Count; i++)
             {
-                MessageBox.Show($"Book Title: {data[i].title}, Author: {data[i].author}, Release Year: {data[i].year}");
+                resultsBox.Text+=($"Book Title: {data[i].title}, Author: {data[i].author}, Release Year: {data[i].year}/n");
             }
+        }
+
+        private void resultsBox_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

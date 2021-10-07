@@ -43,14 +43,13 @@ namespace books
             this.cleearBtn = new System.Windows.Forms.Button();
             this.genresSelect = new System.Windows.Forms.ComboBox();
             this.showBtn = new System.Windows.Forms.Button();
-            this.FilterSelect = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Showcard Gothic", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.lbl1.Location = new System.Drawing.Point(420, 9);
+            this.lbl1.Location = new System.Drawing.Point(321, 9);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(231, 30);
             this.lbl1.TabIndex = 0;
@@ -112,21 +111,21 @@ namespace books
             // 
             this.bookTitleTxt.Location = new System.Drawing.Point(213, 63);
             this.bookTitleTxt.Name = "bookTitleTxt";
-            this.bookTitleTxt.Size = new System.Drawing.Size(644, 23);
+            this.bookTitleTxt.Size = new System.Drawing.Size(487, 23);
             this.bookTitleTxt.TabIndex = 6;
             // 
             // isbnTxt
             // 
             this.isbnTxt.Location = new System.Drawing.Point(213, 131);
             this.isbnTxt.Name = "isbnTxt";
-            this.isbnTxt.Size = new System.Drawing.Size(644, 23);
+            this.isbnTxt.Size = new System.Drawing.Size(487, 23);
             this.isbnTxt.TabIndex = 7;
             // 
             // authorTxt
             // 
             this.authorTxt.Location = new System.Drawing.Point(213, 83);
             this.authorTxt.Name = "authorTxt";
-            this.authorTxt.Size = new System.Drawing.Size(644, 23);
+            this.authorTxt.Size = new System.Drawing.Size(487, 23);
             this.authorTxt.TabIndex = 8;
             // 
             // yearTxt
@@ -140,7 +139,7 @@ namespace books
             // submitBtn
             // 
             this.submitBtn.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.submitBtn.Location = new System.Drawing.Point(264, 211);
+            this.submitBtn.Location = new System.Drawing.Point(213, 211);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(184, 73);
             this.submitBtn.TabIndex = 10;
@@ -151,7 +150,7 @@ namespace books
             // cleearBtn
             // 
             this.cleearBtn.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.cleearBtn.Location = new System.Drawing.Point(594, 211);
+            this.cleearBtn.Location = new System.Drawing.Point(516, 211);
             this.cleearBtn.Name = "cleearBtn";
             this.cleearBtn.Size = new System.Drawing.Size(184, 73);
             this.cleearBtn.TabIndex = 11;
@@ -180,38 +179,19 @@ namespace books
             // showBtn
             // 
             this.showBtn.Font = new System.Drawing.Font("Showcard Gothic", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
-            this.showBtn.Location = new System.Drawing.Point(12, 233);
+            this.showBtn.Location = new System.Drawing.Point(272, 322);
             this.showBtn.Name = "showBtn";
-            this.showBtn.Size = new System.Drawing.Size(184, 73);
+            this.showBtn.Size = new System.Drawing.Size(329, 42);
             this.showBtn.TabIndex = 13;
-            this.showBtn.Text = "show";
+            this.showBtn.Text = "search the database";
             this.showBtn.UseVisualStyleBackColor = true;
             this.showBtn.Click += new System.EventHandler(this.showBtn_Click);
-            // 
-            // FilterSelect
-            // 
-            this.FilterSelect.FormattingEnabled = true;
-            this.FilterSelect.Items.AddRange(new object[] {
-            "Fantasy",
-            "Sci-fi",
-            "Thriller",
-            "Drama",
-            "Mystery",
-            "Science",
-            "History"});
-            this.FilterSelect.Location = new System.Drawing.Point(12, 211);
-            this.FilterSelect.Name = "FilterSelect";
-            this.FilterSelect.Size = new System.Drawing.Size(184, 23);
-            this.FilterSelect.TabIndex = 14;
-            this.FilterSelect.Text = "Select Genre to Show Books";
-            this.FilterSelect.SelectedIndexChanged += new System.EventHandler(this.FilterSelect_SelectedIndexChanged);
             // 
             // inputForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(928, 318);
-            this.Controls.Add(this.FilterSelect);
+            this.ClientSize = new System.Drawing.Size(755, 376);
             this.Controls.Add(this.showBtn);
             this.Controls.Add(this.genresSelect);
             this.Controls.Add(this.cleearBtn);
@@ -249,7 +229,6 @@ namespace books
         private System.Windows.Forms.Button cleearBtn;
         private System.Windows.Forms.ComboBox genresSelect;
         private System.Windows.Forms.Button showBtn;
-        private System.Windows.Forms.ComboBox FilterSelect;
     }
 }
 

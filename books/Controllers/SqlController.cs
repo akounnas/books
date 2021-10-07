@@ -30,28 +30,35 @@ namespace books.Controllers
                     command.Parameters.Add("@isbn", SqlDbType.VarChar, 50);
                     command.Parameters.Add("@genre", SqlDbType.VarChar, 50);
 
-                    try
-                    {
-                        connection.Open();
+                    if ((data.title != null) && (data.author != null) && (data.year == "0") && (data.genre == "Select Genre...") ) {
+                        try
+                        {
+                            connection.Open();
 
-                        command.Parameters["@title"].Value = data.title;
-                        command.Parameters["@author"].Value = data.author;
-                        command.Parameters["@year"].Value = data.year;
-                        command.Parameters["@isbn"].Value = data.isbn;
-                        command.Parameters["@genre"].Value = data.genre;
+                            command.Parameters["@title"].Value = data.title;
+                            command.Parameters["@author"].Value = data.author;
+                            command.Parameters["@year"].Value = data.year;
+                            command.Parameters["@isbn"].Value = data.isbn;
+                            command.Parameters["@genre"].Value = data.genre;
 
-                        command.ExecuteNonQuery();
+                            command.ExecuteNonQuery();
 
-                        return true;
+                            return true;
+                        }
+                        catch (Exception ex)
+                        {
+                            System.Windows.Forms.MessageBox.Show(ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                            return false;
+                        }
+                        finally
+                        {
+                            connection.Close();
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        System.Windows.Forms.MessageBox.Show(ex.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                        System.Windows.Forms.MessageBox.Show("title, author, year and genre fields can't be empty");
                         return false;
-                    }
-                    finally
-                    {
-                        connection.Close();
                     }
                 }
             }

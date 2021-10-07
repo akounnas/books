@@ -80,6 +80,7 @@ namespace books
             this.resultsBox.Size = new System.Drawing.Size(776, 225);
             this.resultsBox.TabIndex = 18;
             this.resultsBox.Text = "";
+            this.resultsBox.TextChanged += new System.EventHandler(this.resultsBox_TextChanged);
             // 
             // SearchDb
             // 
