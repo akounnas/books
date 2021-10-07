@@ -76,16 +76,7 @@ namespace books
 
         private void genresSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
-/*            List<string> genres = new List<string>()
-            {
-                "Fantasy",
-                "Drama",
-                "Horror",
-                "Sci-Fi",
-                "Thriller",
-                "Science",
-                "History"
-            };*/
+
         }
 
         private SqlController sqlController;
