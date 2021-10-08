@@ -27,7 +27,13 @@ namespace books
 
         private void SearchDb_Load(object sender, EventArgs e)
         {
-
+            //Insert genre into combobox.
+            List<string> genre = sqlController.SelectGenre();
+            
+            foreach (var item in genre)
+            {
+                FilterSelect.Items.Add(item);
+            }
         }
 
         private void showBtn_Click(object sender, EventArgs e)

@@ -132,8 +132,11 @@ VALUES
              ,@genre)
 </value>
   </data>
+  <data name="SelectGenre" xml:space="preserve">
+    <value>SELECT Genre FROM [{0}].[dbo].[book_genre]</value>
+  </data>
   <data name="SelectQuery" xml:space="preserve">
     <value>SELECT * FROM [{0}].[dbo].[book_list] 
-                WHERE genre =@genre;</value>
+                WHERE genre ='%{1}';</value>
   </data>
 </root>

@@ -82,8 +82,17 @@ namespace books.Queries {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SELECT Genre FROM [{0}].[dbo].[book_genre].
+        /// </summary>
+        internal static string SelectGenre {
+            get {
+                return ResourceManager.GetString("SelectGenre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM [{0}].[dbo].[book_list] 
-        ///                WHERE genre =@genre;.
+        ///                WHERE genre =&apos;%{1}&apos;;.
         /// </summary>
         internal static string SelectQuery {
             get {

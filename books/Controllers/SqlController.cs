@@ -66,9 +66,9 @@ namespace books.Controllers
 
         public List<DataModel> SelectData(string selection)
         {
-            DataModel data = new DataModel();
+            
             List<DataModel> result = new List<DataModel>();
-            var query = string.Format(Queries.Queries.SelectQuery, "Books");
+            var query = string.Format(Queries.Queries.SelectQuery, "Books",selection);
 
             using(var connection = new SqlConnection(connectionString))
             {
@@ -78,26 +78,56 @@ namespace books.Controllers
                     {
                         connection.Open();
 
-                        command.Connection = connection;
-                        command.CommandType = CommandType.Text;
-                        command.CommandText = string.Format(Queries.Queries.SelectQuery, "Books");
-
-                        command.Parameters.Add("@genre", SqlDbType.VarChar, 50);
-
-                        command.Parameters["@genre"].Value = selection;
-
-                        command.ExecuteNonQuery();
 
                         using (var reader = command.ExecuteReader())
                         {
                             while (reader.Read())
                             {
+                                DataModel data = new DataModel();
                                 data.title = reader["title"].ToString();
                                 data.author = reader["author"].ToString();
                                 data.year = reader["year"].ToString();
                                 data.isbn = reader["isbn"].ToString();
                                 data.genre = reader["genre"].ToString();
                                 result.Add(data);
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    System.Windows.Forms.MessageBox.Show(e.Message, "Error", System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+
+            return result;
+        }
+
+
+        public List<string> SelectGenre()
+        {
+
+            List<string> result = new List<string>();
+            var query = string.Format(Queries.Queries.SelectQuery, "Books");
+
+            using (var connection = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    using (var command = new SqlCommand(query, connection))
+                    {
+                        connection.Open();
+
+
+                        using (var reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                result.Add(reader["genre"].ToString());
                             }
                         }
                     }
