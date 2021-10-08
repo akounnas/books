@@ -16,6 +16,7 @@ namespace books.Controllers
 
         public bool InsertData(DataModel data)
         {
+            
             using (var connection = new SqlConnection(connectionString))
             {
                 using (var command = new SqlCommand())
@@ -30,7 +31,7 @@ namespace books.Controllers
                     command.Parameters.Add("@isbn", SqlDbType.VarChar, 50);
                     command.Parameters.Add("@genre", SqlDbType.VarChar, 50);
 
-                    if ((data.title != null) && (data.author != null) && (data.year == "0") && (data.genre == "Select Genre...") ) {
+                    if (!string.IsNullOrEmpty(data.title)  && !string.IsNullOrEmpty(data.author) && (data.year == "0") && (data.genre == "Select Genre...") ) {
                         try
                         {
                             connection.Open();
