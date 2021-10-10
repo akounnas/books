@@ -161,14 +161,6 @@ namespace books
             // genresSelect
             // 
             this.genresSelect.FormattingEnabled = true;
-            this.genresSelect.Items.AddRange(new object[] {
-            "Fantasy",
-            "Sci-fi",
-            "Thriller",
-            "Drama",
-            "Mystery",
-            "Science",
-            "History"});
             this.genresSelect.Location = new System.Drawing.Point(213, 155);
             this.genresSelect.Name = "genresSelect";
             this.genresSelect.Size = new System.Drawing.Size(235, 23);

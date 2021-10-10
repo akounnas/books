@@ -48,19 +48,11 @@ namespace books
             // FilterSelect
             // 
             this.FilterSelect.FormattingEnabled = true;
-            this.FilterSelect.Items.AddRange(new object[] {
-            "Fantasy",
-            "Sci-fi",
-            "Thriller",
-            "Drama",
-            "Mystery",
-            "Science",
-            "History"});
             this.FilterSelect.Location = new System.Drawing.Point(297, 39);
             this.FilterSelect.Name = "FilterSelect";
             this.FilterSelect.Size = new System.Drawing.Size(184, 23);
             this.FilterSelect.TabIndex = 15;
-            this.FilterSelect.Text = "Select Genre to Show Books";
+            this.FilterSelect.SelectedIndexChanged += new System.EventHandler(this.FilterSelect_SelectedIndexChanged);
             // 
             // showBtn
             // 

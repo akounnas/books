@@ -27,7 +27,7 @@ namespace books
 
         private void SearchDb_Load(object sender, EventArgs e)
         {
-            //Insert genre into combobox.
+            //Insert genres into selectbox.
             List<string> genre = sqlController.SelectGenre();
             
             foreach (var item in genre)
@@ -40,14 +40,20 @@ namespace books
         {
             string selection = FilterSelect.Text;
             var data = sqlController.SelectData(selection);
+            var nl = Environment.NewLine;
 
             for (int i = 0; i < data.Count; i++)
             {
-                resultsBox.Text+=($"Book Title: {data[i].title}, Author: {data[i].author}, Release Year: {data[i].year}/n");
+                resultsBox.Text+=($"Book Title: {data[i].title}   ||   Author: {data[i].author}   ||   Release Year: {data[i].year}{nl}");
             }
         }
 
         private void resultsBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FilterSelect_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

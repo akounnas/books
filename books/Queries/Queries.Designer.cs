@@ -82,7 +82,7 @@ namespace books.Queries {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SELECT Genre FROM [{0}].[dbo].[book_genre].
+        ///   Looks up a localized string similar to SELECT genre FROM [{0}].[dbo].[book_genre].
         /// </summary>
         internal static string SelectGenre {
             get {
@@ -92,7 +92,7 @@ namespace books.Queries {
         
         /// <summary>
         ///   Looks up a localized string similar to SELECT * FROM [{0}].[dbo].[book_list] 
-        ///                WHERE genre =&apos;%{1}&apos;;.
+        ///                WHERE genre =&apos;{1}&apos;;.
         /// </summary>
         internal static string SelectQuery {
             get {

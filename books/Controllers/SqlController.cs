@@ -31,7 +31,7 @@ namespace books.Controllers
                     command.Parameters.Add("@isbn", SqlDbType.VarChar, 50);
                     command.Parameters.Add("@genre", SqlDbType.VarChar, 50);
 
-                    if (!string.IsNullOrEmpty(data.title)  && !string.IsNullOrEmpty(data.author) && (data.year == "0") && (data.genre == "Select Genre...") ) {
+                    if (!string.IsNullOrEmpty(data.title)  && !string.IsNullOrEmpty(data.author) && (data.year != "0") && (data.genre != "Select Genre...") ) {
                         try
                         {
                             connection.Open();
@@ -69,7 +69,7 @@ namespace books.Controllers
         {
             
             List<DataModel> result = new List<DataModel>();
-            var query = string.Format(Queries.Queries.SelectQuery, "Books",selection);
+            var query = string.Format(Queries.Queries.SelectQuery, "Books", selection);
 
             using(var connection = new SqlConnection(connectionString))
             {
@@ -113,7 +113,7 @@ namespace books.Controllers
         {
 
             List<string> result = new List<string>();
-            var query = string.Format(Queries.Queries.SelectQuery, "Books");
+            var query = string.Format(Queries.Queries.SelectGenre, "Books");
 
             using (var connection = new SqlConnection(connectionString))
             {

@@ -13,11 +13,30 @@ namespace books
 {
     public partial class inputForm : Form
     {
+
         public inputForm()
         {
             InitializeComponent();
             Init();
+
+            List<string> genre = sqlController.SelectGenre();
+
+            foreach (var item in genre)
+            {
+                genresSelect.Items.Add(item);
+            }
         }
+
+/*        private void inputForm_Load(object sender, EventArgs e)
+        {
+            //Insert genres into selectbox.
+            List<string> genre = sqlController.SelectGenre();
+
+            foreach (var item in genre)
+            {
+                genresSelect.Items.Add(item);
+            }
+        }*/
 
         private void label1_Click(object sender, EventArgs e)
         {
@@ -71,7 +90,7 @@ namespace books
             authorTxt.Text = null;
             yearTxt.Text = null;
             isbnTxt.Text = null;
-            genresSelect.Text = null;
+            genresSelect.Text = "Select Genre...";
         }
 
         private void genresSelect_SelectedIndexChanged(object sender, EventArgs e)
